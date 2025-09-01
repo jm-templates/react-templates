@@ -1,40 +1,25 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
   height: 100vh;
-  padding: 20px;
-  color: #ffffff;
   display: flex;
   justify-content: baseline;
   width: 100vw;
 }
 
-nav {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+a.button {
+  padding: 10px 24px;
 }
 
-nav > .transitioning {
-  color: red;
-}
-
-nav > a:hover {
-  color: green;
-}
-
-nav > .active {
-  color: green;
-}
-
-nav > .peding {
-  animation: pulse 1s infinite;
+a.active {
+  color: #373737;
+  background: #d4d4d4;
 }
 
 main {
   display: flex;
   justify-content: center;
   flex: 1;
+  padding: 2rem;
 }
