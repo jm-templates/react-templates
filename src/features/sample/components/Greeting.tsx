@@ -1,18 +1,19 @@
+import { useContext } from "react";
 import { BasicButton } from "../../../shared/components/buttons.tsx/Buttons";
-import { useSampleCount, useSampleIncrement } from "../context/sample.context";
+
 import useWelcome from "../hooks/useWelcome";
+import { SampleContext } from "../Layout";
 
 export default function Greeting() {
   const { getNameByParms } = useWelcome();
 
-  const sampleCount = useSampleCount();
-  const sampleIncrement = useSampleIncrement();
+  const ctx = useContext(SampleContext);
 
   return (
     <>
       <h2 className="text-2xl"> Greeting {`${getNameByParms()}`}</h2>
-      <p>count: {sampleCount}</p>
-      <BasicButton onClick={sampleIncrement}>click</BasicButton>
+      <p>count: {ctx?.sampleCount}</p>
+      <BasicButton onClick={ctx?.sampleIncrement}>click</BasicButton>
     </>
   );
 }
