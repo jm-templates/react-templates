@@ -1,15 +1,17 @@
-import { useContext } from "react";
 import { BasicButton } from "../../../shared/components/buttons.tsx/Buttons";
-import { SampleContext } from "../Layout";
+import { useSampleActions, useSampleCount } from "../contexts/useSample";
 
 export default function Welcome() {
-  const ctx = useContext(SampleContext);
+    const count = useSampleCount()
+    const { sampleIncrement, sampleDecrement, sampleReset} = useSampleActions()
 
   return (
     <>
       <h2 className="text-2xl">Welcome</h2>
-      <p>count: {ctx?.sampleCount}</p>
-      <BasicButton onClick={ctx?.sampleIncrement}>click</BasicButton>
+      <p>count: {count}</p>
+      <BasicButton onClick={sampleIncrement}>increase</BasicButton>
+      <BasicButton onClick={sampleDecrement}>decrease</BasicButton>
+      <BasicButton onClick={sampleReset}>reset</BasicButton>
     </>
   );
 }
