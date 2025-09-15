@@ -1,12 +1,12 @@
-import { BasicButton } from "../../../shared/components/buttons.tsx/Buttons";
+import { BasicButton } from "../../../shared/components/buttons/BasicButton";
 
 import useWelcome from "../hooks/useWelcome";
 import { useSampleActions, useSampleCount } from "../contexts/useSample";
 
 export default function Greeting() {
   const { getNameByParms } = useWelcome();
-  const count = useSampleCount()
-  const { sampleIncrement, sampleDecrement, sampleReset} = useSampleActions()
+  const count = useSampleCount();
+  const { sampleIncrement, sampleDecrement, sampleReset } = useSampleActions();
 
   return (
     <>
