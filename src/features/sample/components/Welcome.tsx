@@ -12,8 +12,8 @@ export default function Welcome() {
       <BasicButton onClick={sampleIncrement} size="xl">
         increase
       </BasicButton>
-      <BasicButton onClick={sampleDecrement}>decrease</BasicButton>
-      <BasicButton onClick={sampleReset} size="2xs">
+      <BasicButton onClick={sampleDecrement} variant="outline">decrease</BasicButton>
+      <BasicButton onClick={sampleReset} size="2xs" disabled={true}>
         reset
       </BasicButton>
     </>
