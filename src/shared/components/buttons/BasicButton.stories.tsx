@@ -1,4 +1,4 @@
-import { fn } from "storybook/internal/test";
+import { expect, fn, userEvent, within } from "storybook/internal/test";
 import { BasicButton } from "./BasicButton";
 import { Meta, StoryObj } from "@storybook/react-vite";
 
@@ -39,6 +39,14 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
+Primary.play = async ({ canvasElement, args }) => {
+  const c = within(canvasElement);
+  const btn = await c.findByRole("button", {
+    name: /button|play with controls|action/i,
+  });
+  await userEvent.click(btn);
+  expect(args.onClick).toHaveBeenCalledTimes(1);
+};
 
 export const Outline: Story = {
   args: { variant: "outline" },
